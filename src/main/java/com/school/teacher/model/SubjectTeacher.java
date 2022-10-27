@@ -1,13 +1,15 @@
 package com.school.teacher.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.school.general.model.PhysicalPerson;
+import com.school.general.model.Subject;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "professor_disciplina", schema = "heroku_fdafa744b3499e8")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -18,8 +20,10 @@ public class SubjectTeacher {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long subjectTeacherSequenceNumber;
 
-    //Recebe como chave estrangeira o código da disciplina
+    @Column(name = "cd_disciplina", length = 11, nullable = false)
+    private Long subjectCode;
 
-    //Recebe como chave estrangeira o código da pessoa física
+    @Column(name = "cd_funcionario", length = 11, nullable = false)
+    private Long employeeCode;
 
 }

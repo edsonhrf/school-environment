@@ -1,14 +1,14 @@
 package com.school.general.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "nota", schema = "heroku_fdafa744b3499e8")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -37,9 +37,9 @@ public class Grade {
     @Column(name = "nota_recup_seg_sem")
     private Float secondSemesterRecoverGrade;
 
-    //Recebe como chave estrangeira o código do aluno
+    //Uma nota tem um aluno
 
-    //Recebe como chave estrangeira o código da disciplina
+    //Uma nota tem uma disciplina
 
 
 

@@ -1,14 +1,14 @@
 package com.school.general.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "pessoa_fisica", schema = "heroku_fdafa744b3499e8")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

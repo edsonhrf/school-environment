@@ -1,13 +1,13 @@
 package com.school.general.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "cargo", schema = "heroku_fdafa744b3499e8")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -20,4 +20,6 @@ public class Position {
 
     @Column(name = "ds_cargo", length = 45)
     private String positionName;
+
+    //Um cargo tem vários funcionários
 }

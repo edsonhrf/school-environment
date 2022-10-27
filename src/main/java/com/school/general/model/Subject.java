@@ -1,13 +1,14 @@
 package com.school.general.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "disciplina", schema = "heroku_fdafa744b3499e8")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -21,5 +22,14 @@ public class Subject {
     @Column(name = "ds_disciplina", length = 45)
     private String subjectName;
 
-    //Recebe como chave estrangeira o código da série
+    //Disciplina recebe uma lista de professores
+    @ManyToMany
+    @JoinTable(name = "professor_disciplina",
+            joinColumns = @JoinColumn(name = "cd_disciplina"),
+            inverseJoinColumns = @JoinColumn(name = "cd_funcionario"))
+    private List<Employee> teachers;
+
+    //Uma disciplina tem várias turmas/séries
+
+
 }

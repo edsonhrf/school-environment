@@ -1,14 +1,15 @@
 package com.school.general.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "funcionario", schema = "heroku_fdafa744b3499e8")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -25,8 +26,15 @@ public class Employee {
     @Column(name = "dt_matricula", nullable = false)
     private LocalDate enrollmentDate;
 
-    //Recebe como chave estrangeira o código do cargo
+    //Um aluno possui um código de pessoa física
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cd_pessoa_fisica")
+    private PhysicalPerson physicalPerson;
 
-    //Recebe como chave estrangeira o código da pessoa física
+    //Professor recebe uma lista de disciplinas
+    @ManyToMany(mappedBy = "teachers")
+    private List<Subject> subjects;
+
+    //Um funcionário tem um cargo
 
 }

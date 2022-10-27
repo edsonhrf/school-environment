@@ -1,14 +1,14 @@
 package com.school.general.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "falta", schema = "heroku_fdafa744b3499e8")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -25,7 +25,9 @@ public class Attendance {
     @Column(name = "ds_motivo", length = 45)
     private String reasonDescription;
 
-    //Recebe como chave estrangeira o código do aluno
+    //Essa entidade recebe uma lista de turmas
+
+    //Essa entidade recebe uma lista de alunos
 
 }
 

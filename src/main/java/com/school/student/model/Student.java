@@ -1,14 +1,16 @@
 package com.school.student.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.school.general.model.PhysicalPerson;
+import com.school.general.model.SchoolDegree;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "aluno", schema = "heroku_fdafa744b3499e8")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -25,8 +27,11 @@ public class Student {
     @Column(name = "nr_matricula", length = 11, nullable = false)
     private Integer enrollmentNumber;
 
-    //Recebe como chave estrangeira o código da pessoa física
+    //Um aluno possui um código de pessoa física
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cd_pessoa_fisica")
+    private PhysicalPerson physicalPerson;
 
-    //Recebe como chave estrangeira o código da série
+    //Um aluno possui possui uma série
 
 }
