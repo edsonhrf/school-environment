@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class PhysicalPersonModel {
+public class PhysicalPerson {
 
     @Id
     @Column(name = "cd_pessoa_fisica", length = 11)
