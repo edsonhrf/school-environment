@@ -26,7 +26,7 @@ public class Employee {
     @Column(name = "dt_matricula", nullable = false)
     private LocalDate enrollmentDate;
 
-    //Um aluno possui um código de pessoa física
+    //Um funcionário possui um código de pessoa física
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cd_pessoa_fisica")
     private PhysicalPerson physicalPerson;
@@ -36,5 +36,8 @@ public class Employee {
     private List<Subject> subjects;
 
     //Um funcionário tem um cargo
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cd_cargo")
+    private Position position;
 
 }

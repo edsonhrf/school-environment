@@ -1,11 +1,14 @@
 package com.school.student.model;
 
+import com.school.general.model.Attendance;
+import com.school.general.model.Grade;
 import com.school.general.model.PhysicalPerson;
 import com.school.general.model.SchoolDegree;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "aluno", schema = "heroku_fdafa744b3499e8")
@@ -32,6 +35,16 @@ public class Student {
     @JoinColumn(name = "cd_pessoa_fisica")
     private PhysicalPerson physicalPerson;
 
-    //Um aluno possui possui uma série
+    //Vários alunos estão em uma turma/série
+    @ManyToOne
+    private SchoolDegree schoolDegree;
+
+    //Vários alunos estão em uma lista de presença/falta
+    @ManyToOne
+    private Attendance attendance;
+
+    //Um aluno possui várias notas
+    @OneToMany
+    private List<Grade> grades;
 
 }

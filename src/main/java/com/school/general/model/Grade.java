@@ -1,5 +1,6 @@
 package com.school.general.model;
 
+import com.school.student.model.Student;
 import lombok.*;
 
 import javax.persistence.*;
@@ -37,11 +38,14 @@ public class Grade {
     @Column(name = "nota_recup_seg_sem")
     private Float secondSemesterRecoverGrade;
 
-    //Uma nota tem um aluno
+    //Uma nota pertence a um aluno
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cd_aluno")
+    private Student student;
 
-    //Uma nota tem uma disciplina
-
-
-
+    //Uma nota pertence a uma disciplina
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cd_disciplina")
+    private Subject subject;
 
 }

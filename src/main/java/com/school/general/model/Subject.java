@@ -22,14 +22,22 @@ public class Subject {
     @Column(name = "ds_disciplina", length = 45)
     private String subjectName;
 
-    //Disciplina recebe uma lista de professores
+    //Disciplina recebe uma lista de professores/funcionários
     @ManyToMany
     @JoinTable(name = "professor_disciplina",
             joinColumns = @JoinColumn(name = "cd_disciplina"),
             inverseJoinColumns = @JoinColumn(name = "cd_funcionario"))
     private List<Employee> teachers;
 
-    //Uma disciplina tem várias turmas/séries
+    //Uma disciplina possui várias notas
+    @OneToMany
+    private List<Grade> grades;
 
+    //Uma disciplina tem várias turmas/séries
+    @ManyToMany
+    @JoinTable(name = "disciplina_serie",
+            joinColumns = @JoinColumn(name = "cd_disciplina"),
+            inverseJoinColumns = @JoinColumn(name = "cd_serie"))
+    private List<SchoolDegree> schoolDegrees;
 
 }

@@ -3,6 +3,7 @@ package com.school.general.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "cargo", schema = "heroku_fdafa744b3499e8")
@@ -22,4 +23,6 @@ public class Position {
     private String positionName;
 
     //Um cargo tem vários funcionários
+    @OneToMany
+    private List<Employee> employees;
 }

@@ -1,9 +1,11 @@
 package com.school.general.model;
 
+import com.school.student.model.Student;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "serie", schema = "heroku_fdafa744b3499e8")
@@ -28,6 +30,16 @@ public class SchoolDegree {
     @Column(name = "dt_atualizacao")
     private LocalDate updateDate;
 
+    //Várias séries pertencem a uma lista de presença
+    @ManyToOne
+    private Attendance attendance;
+
     //Uma série tem vários alunos
+    @OneToMany
+    private List<Student> students;
+
+    //Uma turma possui várias disciplinas
+    @ManyToMany(mappedBy = "schoolDegrees")
+    private List<Subject> subjects;
 
 }

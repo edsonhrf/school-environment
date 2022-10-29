@@ -1,9 +1,11 @@
 package com.school.general.model;
 
+import com.school.student.model.Student;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "falta", schema = "heroku_fdafa744b3499e8")
@@ -25,9 +27,13 @@ public class Attendance {
     @Column(name = "ds_motivo", length = 45)
     private String reasonDescription;
 
-    //Essa entidade recebe uma lista de turmas
+    //Uma lista de chamada recebe uma lista de séries/turmas
+    @OneToMany
+    private List<SchoolDegree> classes;
 
-    //Essa entidade recebe uma lista de alunos
+    //Uma lista de chamada recebe uma lista de alunos
+    @OneToMany
+    private List<Student> students;
 
 }
 
