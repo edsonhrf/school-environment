@@ -1,4 +1,4 @@
-package com.school.general.model;
+package com.school.models;
 
 import lombok.*;
 
@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class PhysicalPerson {
+public class PhysicalPersonModel {
 
     @Id
     @Column(name = "cd_pessoa_fisica", length = 11)
@@ -49,7 +49,7 @@ public class PhysicalPerson {
     @Column(name = "ds_rua", length = 45)
     private String addressDescription;
 
-    @Column(name = "nr_residencia", length = 11)
+    @Column(name = "nr_residencia", length = 10)
     private Integer addressNumber;
 
     @Column(name = "ds_complemento", length = 45)
@@ -73,7 +73,7 @@ public class PhysicalPerson {
     @Column(name = "ds_email", length = 45, nullable = false)
     private String email;
 
-    @Column(name = "ds_senha", length = 45)
+    @Column(name = "ds_senha", length = 16)
     private String password;
 
 }

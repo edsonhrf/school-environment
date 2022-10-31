@@ -1,4 +1,4 @@
-package com.school.general.model;
+package com.school.models;
 
 import lombok.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Subject {
+public class SubjectModel {
 
     @Id
     @Column(name = "cd_disciplina", length = 11)
@@ -27,17 +27,17 @@ public class Subject {
     @JoinTable(name = "professor_disciplina",
             joinColumns = @JoinColumn(name = "cd_disciplina"),
             inverseJoinColumns = @JoinColumn(name = "cd_funcionario"))
-    private List<Employee> teachers;
+    private List<EmployeeModel> teachers;
 
     //Uma disciplina possui várias notas
     @OneToMany
-    private List<Grade> grades;
+    private List<GradeModel> grades;
 
     //Uma disciplina tem várias turmas/séries
     @ManyToMany
     @JoinTable(name = "disciplina_serie",
             joinColumns = @JoinColumn(name = "cd_disciplina"),
             inverseJoinColumns = @JoinColumn(name = "cd_serie"))
-    private List<SchoolDegree> schoolDegrees;
+    private List<SchoolDegreeModel> schoolDegrees;
 
 }

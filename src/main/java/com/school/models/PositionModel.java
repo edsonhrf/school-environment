@@ -1,4 +1,4 @@
-package com.school.general.model;
+package com.school.models;
 
 import lombok.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Position {
+public class PositionModel {
 
     @Id
     @Column(name = "cd_cargo", length = 11)
@@ -24,5 +24,5 @@ public class Position {
 
     //Um cargo tem vários funcionários
     @OneToMany
-    private List<Employee> employees;
+    private List<EmployeeModel> employees;
 }

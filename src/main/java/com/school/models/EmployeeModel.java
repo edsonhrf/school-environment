@@ -1,4 +1,4 @@
-package com.school.general.model;
+package com.school.models;
 
 import lombok.*;
 
@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Employee {
+public class EmployeeModel {
 
     @Id
     @Column(name = "cd_funcionario", length = 11)
@@ -29,15 +29,15 @@ public class Employee {
     //Um funcionário possui um código de pessoa física
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cd_pessoa_fisica")
-    private PhysicalPerson physicalPerson;
+    private PhysicalPersonModel physicalPerson;
 
     //Professor recebe uma lista de disciplinas
     @ManyToMany(mappedBy = "teachers")
-    private List<Subject> subjects;
+    private List<SubjectModel> subjectModels;
 
     //Um funcionário tem um cargo
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cd_cargo")
-    private Position position;
+    private PositionModel position;
 
 }

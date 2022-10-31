@@ -1,10 +1,8 @@
-package com.school.general.model;
+package com.school.models;
 
-import com.school.student.model.Student;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "nota", schema = "heroku_fdafa744b3499e8")
@@ -13,7 +11,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Grade {
+public class GradeModel {
 
     @Id
     @Column(name = "nr_sequencia", length = 11)
@@ -41,11 +39,11 @@ public class Grade {
     //Uma nota pertence a um aluno
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cd_aluno")
-    private Student student;
+    private StudentModel student;
 
     //Uma nota pertence a uma disciplina
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cd_disciplina")
-    private Subject subject;
+    private SubjectModel subjectModel;
 
 }

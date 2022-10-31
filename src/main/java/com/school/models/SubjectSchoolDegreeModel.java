@@ -1,4 +1,4 @@
-package com.school.general.model;
+package com.school.models;
 
 import lombok.*;
 
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class SubjectSchoolDegree {
+public class SubjectSchoolDegreeModel {
 
     @Id
     @Column(name = "nr_sequencia", length = 11)

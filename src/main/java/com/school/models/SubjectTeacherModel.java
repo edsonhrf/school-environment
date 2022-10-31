@@ -1,7 +1,5 @@
-package com.school.teacher.model;
+package com.school.models;
 
-import com.school.general.model.PhysicalPerson;
-import com.school.general.model.Subject;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,7 +11,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class SubjectTeacher {
+public class SubjectTeacherModel {
 
     @Id
     @Column(name = "nr_sequencia", length = 11)

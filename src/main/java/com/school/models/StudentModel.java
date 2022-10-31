@@ -1,9 +1,5 @@
-package com.school.student.model;
+package com.school.models;
 
-import com.school.general.model.Attendance;
-import com.school.general.model.Grade;
-import com.school.general.model.PhysicalPerson;
-import com.school.general.model.SchoolDegree;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Student {
+public class StudentModel {
 
     @Id
     @Column(name = "cd_aluno", length = 11)
@@ -33,18 +29,18 @@ public class Student {
     //Um aluno possui um código de pessoa física
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cd_pessoa_fisica")
-    private PhysicalPerson physicalPerson;
+    private PhysicalPersonModel physicalPerson;
 
     //Vários alunos estão em uma turma/série
     @ManyToOne
-    private SchoolDegree schoolDegree;
+    private SchoolDegreeModel schoolDegree;
 
     //Vários alunos estão em uma lista de presença/falta
     @ManyToOne
-    private Attendance attendance;
+    private AttendanceModel attendance;
 
     //Um aluno possui várias notas
     @OneToMany
-    private List<Grade> grades;
+    private List<GradeModel> grades;
 
 }

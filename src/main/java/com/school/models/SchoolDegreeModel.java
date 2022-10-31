@@ -1,6 +1,5 @@
-package com.school.general.model;
+package com.school.models;
 
-import com.school.student.model.Student;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class SchoolDegree {
+public class SchoolDegreeModel {
 
     @Id
     @Column(name = "cd_serie", length = 11)
@@ -32,14 +31,14 @@ public class SchoolDegree {
 
     //Várias séries pertencem a uma lista de presença
     @ManyToOne
-    private Attendance attendance;
+    private AttendanceModel attendance;
 
     //Uma série tem vários alunos
     @OneToMany
-    private List<Student> students;
+    private List<StudentModel> students;
 
     //Uma turma possui várias disciplinas
     @ManyToMany(mappedBy = "schoolDegrees")
-    private List<Subject> subjects;
+    private List<SubjectModel> subjectModels;
 
 }

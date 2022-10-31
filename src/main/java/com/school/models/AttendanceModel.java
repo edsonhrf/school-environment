@@ -1,6 +1,5 @@
-package com.school.general.model;
+package com.school.models;
 
-import com.school.student.model.Student;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Attendance {
+public class AttendanceModel {
 
     @Id
     @Column(name = "nr_sequencia", length = 11)
@@ -29,11 +28,11 @@ public class Attendance {
 
     //Uma lista de chamada recebe uma lista de séries/turmas
     @OneToMany
-    private List<SchoolDegree> classes;
+    private List<SchoolDegreeModel> classes;
 
     //Uma lista de chamada recebe uma lista de alunos
     @OneToMany
-    private List<Student> students;
+    private List<StudentModel> students;
 
 }
 
