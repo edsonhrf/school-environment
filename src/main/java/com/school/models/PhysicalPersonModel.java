@@ -16,7 +16,7 @@ public class PhysicalPersonModel {
 
     @Id
     @Column(name = "cd_pessoa_fisica", length = 11)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long physicalPersonCode;
 
     @Column(name = "ds_nome", length = 45, nullable = false)

@@ -15,7 +15,7 @@ public class SubjectSchoolDegreeModel {
 
     @Id
     @Column(name = "nr_sequencia", length = 11)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long subjectSchoolDegreeSequenceNumber;
 
     @Column(name = "cd_disciplina", length = 11, nullable = false)

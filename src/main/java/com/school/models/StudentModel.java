@@ -17,7 +17,7 @@ public class StudentModel {
 
     @Id
     @Column(name = "cd_aluno", length = 11)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long studentCode;
 
     @Column(name = "dt_matricula", length = 45, nullable = false)

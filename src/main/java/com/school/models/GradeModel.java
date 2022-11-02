@@ -15,7 +15,7 @@ public class GradeModel {
 
     @Id
     @Column(name = "nr_sequencia", length = 11)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long gradeSequenceNumber;
 
     @Column(name = "nota_prim_bim")

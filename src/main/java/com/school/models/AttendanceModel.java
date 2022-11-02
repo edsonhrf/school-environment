@@ -17,7 +17,7 @@ public class AttendanceModel {
 
     @Id
     @Column(name = "nr_sequencia", length = 11)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long subjectSequenceNumber;
 
     @Column(name = "dt_falta", nullable = false)
@@ -26,13 +26,15 @@ public class AttendanceModel {
     @Column(name = "ds_motivo", length = 45)
     private String reasonDescription;
 
-    //Uma lista de chamada recebe uma lista de séries/turmas
+//    Uma lista de chamada recebe uma lista de alunos
     @OneToMany
-    private List<SchoolDegreeModel> classes;
-
-    //Uma lista de chamada recebe uma lista de alunos
-    @OneToMany
+    @JoinColumn(name = "cd_aluno")
     private List<StudentModel> students;
+
+//    Uma lista de chamada recebe uma lista de séries/turmas
+    @OneToMany
+    @JoinColumn(name = "cd_serie")
+    private List<SchoolDegreeModel> classes;
 
 }
 

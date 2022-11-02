@@ -6,8 +6,14 @@ import java.time.LocalDate;
 
 public class AttendanceDTO {
 
+    //Id é gerado automaticamente
+
     //Data da falta é gerada automaticamente
 
     @Size(max = 45)
     private String reasonDescription;
+
+    //código do aluno
+
+    //código da série
 }

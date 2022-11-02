@@ -17,7 +17,7 @@ public class EmployeeModel {
 
     @Id
     @Column(name = "cd_funcionario", length = 11)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long employeeCode;
 
     @Column(name = "nr_matricula", length = 11, nullable = false)

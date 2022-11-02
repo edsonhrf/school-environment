@@ -16,7 +16,7 @@ public class PositionModel {
 
     @Id
     @Column(name = "cd_cargo", length = 11)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long positionCode;
 
     @Column(name = "ds_cargo", length = 45)

@@ -16,7 +16,7 @@ public class SubjectModel {
 
     @Id
     @Column(name = "cd_disciplina", length = 11)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long subjectCode;
 
     @Column(name = "ds_disciplina", length = 45)
