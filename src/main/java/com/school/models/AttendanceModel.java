@@ -1,5 +1,6 @@
 package com.school.models;
 
+import com.school.services.SubjectService;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,7 +13,6 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 public class AttendanceModel {
 
     @Id
@@ -26,15 +26,21 @@ public class AttendanceModel {
     @Column(name = "ds_motivo", length = 45)
     private String reasonDescription;
 
-//    Uma lista de chamada recebe uma lista de alunos
-    @OneToMany
+//  Várias faltas pertencem a um aluno
+    @ManyToOne
     @JoinColumn(name = "cd_aluno")
-    private List<StudentModel> students;
+    private StudentModel student;
 
-//    Uma lista de chamada recebe uma lista de séries/turmas
-    @OneToMany
+//  Uma chamada recebe uma disciplina
+    @OneToOne
+    @JoinColumn(name = "cd_disciplina")
+    private SubjectModel subject;
+
+//  Uma chamada recebe uma série
+    @OneToOne
     @JoinColumn(name = "cd_serie")
-    private List<SchoolDegreeModel> classes;
+    private SchoolDegreeModel schoolDegree;
+
 
 }
 

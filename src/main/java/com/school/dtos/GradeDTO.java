@@ -1,7 +1,11 @@
 package com.school.dtos;
 
-import javax.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.validation.constraints.Size;
+@Getter
+@Setter
 public class GradeDTO {
 
     @Size(max = 4)

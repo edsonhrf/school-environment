@@ -1,19 +1,21 @@
 package com.school.dtos;
 
-import javax.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
 
+@Getter
+@Setter
 public class AttendanceDTO {
-
-    //Id é gerado automaticamente
-
-    //Data da falta é gerada automaticamente
 
     @Size(max = 45)
     private String reasonDescription;
 
-    //código do aluno
+    private Long studentCode;
 
-    //código da série
+    private Long schoolDegreeCode;
+
+    private Long subjectCode;
+
 }
