@@ -23,21 +23,21 @@ public class SubjectModel {
     private String subjectName;
 
     //Disciplina recebe uma lista de professores/funcionários
-    @ManyToMany
-    @JoinTable(name = "professor_disciplina",
-            joinColumns = @JoinColumn(name = "cd_disciplina"),
-            inverseJoinColumns = @JoinColumn(name = "cd_funcionario"))
-    private List<EmployeeModel> teachers;
+//    @ManyToMany
+//    @JoinTable(name = "professor_disciplina",
+//            joinColumns = @JoinColumn(name = "cd_disciplina"),
+//            inverseJoinColumns = @JoinColumn(name = "cd_funcionario"))
+//    private List<EmployeeModel> teachers;
 
     //Uma disciplina possui várias notas
-    @OneToMany
-    private List<GradeModel> grades;
+//    @OneToMany
+//    private List<GradeModel> grades;
 
     //Uma disciplina tem várias turmas/séries
-    @ManyToMany
-    @JoinTable(name = "disciplina_serie",
-            joinColumns = @JoinColumn(name = "cd_disciplina"),
-            inverseJoinColumns = @JoinColumn(name = "cd_serie"))
-    private List<SchoolDegreeModel> schoolDegrees;
+//    @ManyToMany
+//    @JoinTable(name = "disciplina_serie",
+//            joinColumns = @JoinColumn(name = "cd_disciplina"),
+//            inverseJoinColumns = @JoinColumn(name = "cd_serie"))
+//    private List<SchoolDegreeModel> schoolDegrees;
 
 }

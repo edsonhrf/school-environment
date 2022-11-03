@@ -1,11 +1,12 @@
 package com.school.models;
 
-import com.school.services.SubjectService;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Table(name = "falta", schema = "heroku_fdafa744b3499e8")

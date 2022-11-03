@@ -20,25 +20,25 @@ public class SchoolDegreeModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long schoolDegreeCode;
 
-    @Column(name = "ds_serie", nullable = false, length = 45)
-    private String schoolDegreeDescription;
-
-    @Column(name = "dt_registro", nullable = false)
-    private LocalDate recordDate;
-
     @Column(name = "dt_atualizacao")
     private LocalDate updateDate;
 
-    //Várias séries pertencem a uma lista de presença
-    @ManyToOne
-    private AttendanceModel attendance;
+    @Column(name = "ds_serie", length = 45)
+    private String schoolDegreeDescription;
 
-    //Uma série tem vários alunos
-    @OneToMany
-    private List<StudentModel> students;
+    @Column(name = "dt_registro")
+    private LocalDate recordDate;
+
+//    Várias séries pertencem a uma lista de presença
+//    @ManyToOne
+//    private AttendanceModel attendance;
+
+//    Uma série tem vários alunos
+//    @OneToMany
+//    private List<StudentModel> students;
 
     //Uma turma possui várias disciplinas
-    @ManyToMany(mappedBy = "schoolDegrees")
-    private List<SubjectModel> subjectModels;
+//    @ManyToMany(mappedBy = "schoolDegrees")
+//    private List<SubjectModel> subjectModels;
 
 }

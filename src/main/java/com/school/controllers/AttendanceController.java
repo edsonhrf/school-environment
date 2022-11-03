@@ -30,7 +30,6 @@ public class AttendanceController {
     StudentService studentService;
     @Autowired
     SubjectService subjectService;
-
     @Autowired
     SchoolDegreeService schoolDegreeService;
 
@@ -38,18 +37,20 @@ public class AttendanceController {
     public ResponseEntity<Object> saveAttendance(@RequestBody @Valid List<AttendanceDTO> attendanceDTO) {
 
         List<AttendanceModel> xyz = attendanceDTO.stream().map(attendanceDTO1 -> {
+
             var attendanceModel = new AttendanceModel();
+
             BeanUtils.copyProperties(attendanceDTO1, attendanceModel);
             attendanceModel.setAttendanceDate(LocalDate.now(ZoneId.of("UTC")));
 
             var studentModel = studentService.findStudentById(attendanceDTO1.getStudentCode());
             attendanceModel.setStudent(studentModel);
 
-//            var subjectModel = subjectService.findSubjectById(attendanceDTO1.getSubjectCode());
-//            attendanceModel.setSubject(subjectModel);
-//
-//            var schoolDegreeModel = schoolDegreeService.findSchoolDegreeById(attendanceDTO1.getSchoolDegreeCode());
-//            schoolDegreeModel.setSchoolDegreeCode(schoolDegreeModel.getSchoolDegreeCode());
+            var subjectModel = subjectService.findSubjectById(attendanceDTO1.getSubjectCode());
+            attendanceModel.setSubject(subjectModel);
+
+            var schoolDegreeModel = schoolDegreeService.findSchoolDegreeById(attendanceDTO1.getSchoolDegreeCode());
+            attendanceModel.setSchoolDegree(schoolDegreeModel);
 
             return attendanceService.save(attendanceModel);
         }).collect(Collectors.toList());

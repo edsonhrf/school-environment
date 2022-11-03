@@ -32,8 +32,8 @@ public class EmployeeModel {
     private PhysicalPersonModel physicalPerson;
 
     //Professor recebe uma lista de disciplinas
-    @ManyToMany(mappedBy = "teachers")
-    private List<SubjectModel> subjectModels;
+//    @ManyToMany(mappedBy = "teachers")
+//    private List<SubjectModel> subjectModels;
 
     //Um funcionário tem um cargo
     @OneToOne(fetch = FetchType.LAZY)
