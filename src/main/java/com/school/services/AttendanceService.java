@@ -1,21 +1,12 @@
 package com.school.services;
 
+import com.school.dtos.AttendanceDTO;
 import com.school.models.AttendanceModel;
-import com.school.repositories.AttendanceRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
-import java.beans.Transient;
+import java.util.List;
 
-@Service
-public class AttendanceService {
+public interface AttendanceService {
 
-    @Autowired
-    AttendanceRepository attendanceRepository;
+    List<AttendanceModel> save(List<AttendanceDTO> attendanceDTO);
 
-    @Transactional
-    public AttendanceModel save(AttendanceModel attendanceModel) {
-        return attendanceRepository.save(attendanceModel);
-    }
 }

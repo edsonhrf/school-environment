@@ -1,6 +1,6 @@
 package com.school.controllers;
 
-import com.school.services.StudentService;
+import com.school.services.servicesImpl.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.RestController;
 public class StudentController {
 
     @Autowired
-    StudentService studentService;
+    StudentServiceImpl studentService;
 }

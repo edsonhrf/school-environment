@@ -41,7 +41,5 @@ public class AttendanceModel {
     @OneToOne
     @JoinColumn(name = "cd_serie")
     private SchoolDegreeModel schoolDegree;
-
-
 }
 
