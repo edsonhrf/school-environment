@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AttendanceServiceImpl implements AttendanceService {
@@ -51,5 +52,13 @@ public class AttendanceServiceImpl implements AttendanceService {
             listAttendanceModelReturn.add(attendanceModel);
         }
         return listAttendanceModelReturn;
+    }
+    @Override
+    public List<AttendanceModel> findAllAttendances() {
+        return attendanceRepository.findAll();
+    }
+    @Override
+    public Optional<AttendanceModel> findById(Long subjectSequenceNumber) {
+        return attendanceRepository.findById(subjectSequenceNumber);
     }
 }
