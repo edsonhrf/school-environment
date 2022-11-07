@@ -15,6 +15,6 @@ public interface AttendanceService {
 
     Optional<AttendanceModel> findById(Long subjectSequenceNumber);
 
-    List<AttendanceModel> findAttendancesBetweenDate(LocalDate dateTimeStart, LocalDate dateTimeEnd);
+    List<AttendanceModel> findAttendancesBetweenDate(LocalDate dateTimeStart, LocalDate dateTimeEnd, Long studentCode);
 
 }

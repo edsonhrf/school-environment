@@ -63,8 +63,8 @@ public class AttendanceServiceImpl implements AttendanceService {
     }
 
     @Override
-    public List<AttendanceModel> findAttendancesBetweenDate(LocalDate dateTimeStart, LocalDate dateTimeEnd) {
-        return attendanceRepository.findAttendancesBetweenDate(dateTimeStart, dateTimeEnd);
+    public List<AttendanceModel> findAttendancesBetweenDate(LocalDate dateTimeStart, LocalDate dateTimeEnd, Long studentCode) {
+        return attendanceRepository.findAttendancesBetweenDate(dateTimeStart, dateTimeEnd, studentCode);
     }
 
 }

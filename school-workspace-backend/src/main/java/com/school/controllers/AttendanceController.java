@@ -40,8 +40,9 @@ public class AttendanceController {
 
     @GetMapping("/findAttendanceBetweenDate")
     public ResponseEntity<List<AttendanceModel>> findAttendancesBetweenDate(@RequestParam("dateTimeStart") @DateTimeFormat (pattern = "yyyy-MM-dd") LocalDate dateTimeStart,
-                                                                            @RequestParam("dateTimeEnd") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dateTimeEnd) {
-        return ResponseEntity.status(HttpStatus.OK).body(attendanceService.findAttendancesBetweenDate(dateTimeStart, dateTimeEnd));
+                                                                            @RequestParam("dateTimeEnd") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dateTimeEnd,
+                                                                            @RequestParam("studentCode") Long studentCode) {
+        return ResponseEntity.status(HttpStatus.OK).body(attendanceService.findAttendancesBetweenDate(dateTimeStart, dateTimeEnd, studentCode));
     }
 
 }
