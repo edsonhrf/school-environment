@@ -61,4 +61,10 @@ public class AttendanceServiceImpl implements AttendanceService {
     public Optional<AttendanceModel> findById(Long subjectSequenceNumber) {
         return attendanceRepository.findById(subjectSequenceNumber);
     }
+
+    @Override
+    public List<AttendanceModel> findAttendancesBetweenDate(LocalDate dateTimeStart, LocalDate dateTimeEnd) {
+        return attendanceRepository.findAttendancesBetweenDate(dateTimeStart, dateTimeEnd);
+    }
+
 }
