@@ -23,7 +23,11 @@ public class AttendanceController {
     AttendanceServiceImpl attendanceService;
     @PostMapping("/saveAttendance")
     public ResponseEntity<Object> saveAttendance(@RequestBody @Valid List<AttendanceDTO> attendanceDTO) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(attendanceService.save(attendanceDTO));
+        try{
+            return ResponseEntity.status(HttpStatus.CREATED).body(attendanceService.save(attendanceDTO));
+        }catch (Exception e){
+            return ResponseEntity.badRequest().build();
+        }
     }
     @GetMapping
     public ResponseEntity<List<AttendanceModel>> getAllAttendances() {

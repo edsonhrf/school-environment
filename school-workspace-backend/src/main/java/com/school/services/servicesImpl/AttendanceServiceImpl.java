@@ -37,7 +37,7 @@ public class AttendanceServiceImpl implements AttendanceService {
             var attendanceModel = new AttendanceModel();
 
             BeanUtils.copyProperties(attendanceDTO1, attendanceModel);
-            attendanceModel.setAttendanceDate(LocalDate.now(ZoneId.of("UTC")));
+            attendanceModel.setRegisterDate(LocalDate.now(ZoneId.of("UTC")));
 
             var studentModel = studentService.findStudentById(attendanceDTO1.getStudentCode());
             attendanceModel.setStudent(studentModel);

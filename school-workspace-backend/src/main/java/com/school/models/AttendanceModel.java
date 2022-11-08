@@ -21,6 +21,9 @@ public class AttendanceModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long subjectSequenceNumber;
 
+    @Column(name = "dt_registro", nullable = false)
+    private LocalDate registerDate;
+
     @Column(name = "dt_falta", nullable = false)
     private LocalDate attendanceDate;
 
@@ -29,17 +32,17 @@ public class AttendanceModel {
 
 //  Várias faltas pertencem a um aluno
     @ManyToOne
-    @JoinColumn(name = "cd_aluno")
+    @JoinColumn(name = "cd_aluno", nullable = false)
     private StudentModel student;
 
 //  Uma chamada recebe uma disciplina
     @OneToOne
-    @JoinColumn(name = "cd_disciplina")
+    @JoinColumn(name = "cd_disciplina", nullable = false)
     private SubjectModel subject;
 
 //  Uma chamada recebe uma série
     @OneToOne
-    @JoinColumn(name = "cd_serie")
+    @JoinColumn(name = "cd_serie", nullable = false)
     private SchoolDegreeModel schoolDegree;
 }
 

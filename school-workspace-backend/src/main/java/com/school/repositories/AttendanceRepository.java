@@ -16,5 +16,4 @@ public interface AttendanceRepository extends JpaRepository<AttendanceModel, Lon
     public List<AttendanceModel> findAttendancesBetweenDate(@Param("dateTimeStart") LocalDate dateTimeStart,
                                                             @Param("dateTimeEnd") LocalDate dateTimeEnd,
                                                             @Param("studentCode") Long studentCode);
-
 }
