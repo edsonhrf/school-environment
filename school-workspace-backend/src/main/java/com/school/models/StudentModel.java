@@ -35,8 +35,5 @@ public class StudentModel {
 //    @ManyToOne
 //    private SchoolDegreeModel schoolDegree;
 
-//    Um aluno possui várias notas
-//    @OneToMany
-//    private List<GradeModel> grades;
 
 }

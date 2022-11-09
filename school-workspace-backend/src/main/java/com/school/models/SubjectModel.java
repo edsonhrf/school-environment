@@ -29,10 +29,6 @@ public class SubjectModel {
 //            inverseJoinColumns = @JoinColumn(name = "cd_funcionario"))
 //    private List<EmployeeModel> teachers;
 
-    //Uma disciplina possui várias notas
-//    @OneToMany
-//    private List<GradeModel> grades;
-
     //Uma disciplina tem várias turmas/séries
 //    @ManyToMany
 //    @JoinTable(name = "disciplina_serie",

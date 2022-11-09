@@ -36,14 +36,19 @@ public class GradeModel {
     @Column(name = "nota_recup_seg_sem")
     private Float secondSemesterRecoverGrade;
 
-    //Uma nota pertence a um aluno
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cd_aluno")
+    //Várias notas pertencem a um aluno
+    @ManyToOne
+    @JoinColumn(name = "cd_aluno", nullable = false)
     private StudentModel student;
 
-    //Uma nota pertence a uma disciplina
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cd_disciplina")
-    private SubjectModel subjectModel;
+    //Várias notas pertencem a uma disciplina
+    @ManyToOne
+    @JoinColumn(name = "cd_disciplina", nullable = false)
+    private SubjectModel subject;
+
+    //Várias notas pertencem a uma turma/série
+    @ManyToOne
+    @JoinColumn(name = "cd_serie", nullable = false)
+    private SchoolDegreeModel schoolDegree;
 
 }

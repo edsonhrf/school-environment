@@ -36,12 +36,12 @@ public class AttendanceModel {
     private StudentModel student;
 
 //  Uma chamada recebe uma disciplina
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "cd_disciplina", nullable = false)
     private SubjectModel subject;
 
 //  Uma chamada recebe uma série
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "cd_serie", nullable = false)
     private SchoolDegreeModel schoolDegree;
 }
