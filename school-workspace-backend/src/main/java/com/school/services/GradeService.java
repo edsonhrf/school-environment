@@ -8,4 +8,6 @@ import java.util.Optional;
 public interface GradeService {
 
     Optional<GradeModel> findGradesByStudent(Long studentCode, Long schoolDegreeCode, Long subjectCode);
+
+    List<GradeModel> findAllStudentsGradesBySchoolDegreeAndSubject(Long schoolDegree, Long subjectCode);
 }
