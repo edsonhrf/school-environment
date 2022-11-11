@@ -14,6 +14,12 @@ public class GradeServiceImpl implements GradeService {
 
     @Autowired
     GradeRepository gradeRepository;
+    @Autowired
+    StudentServiceImpl studentService;
+    @Autowired
+    SubjectServiceImpl subjectService;
+    @Autowired
+    SchoolDegreeServiceImpl schoolDegreeService;
     @Override
     public Optional<GradeModel> findGradesByStudent(Long studentCode, Long schoolDegreeCode, Long subjectCode) {
         return gradeRepository.findGradesByStudentAndSubjectAndSchoolDegree(studentCode, schoolDegreeCode, subjectCode);
@@ -21,6 +27,16 @@ public class GradeServiceImpl implements GradeService {
     @Override
     public List<GradeModel> findAllStudentsGradesBySchoolDegreeAndSubject(Long schoolDegree, Long subjectCode){
         return gradeRepository.findAllStudentsGradesBySchoolDegreeAndSubject(schoolDegree, subjectCode);
+    }
+
+    @Override
+    public Optional<GradeModel> findById(Long studenteCode) {
+        return gradeRepository.findById(studenteCode);
+    }
+
+    @Override
+    public GradeModel save(GradeModel gradeModel) {
+        return gradeRepository.save(gradeModel);
     }
 
 }

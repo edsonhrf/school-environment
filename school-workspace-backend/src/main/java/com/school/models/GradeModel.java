@@ -31,7 +31,7 @@ public class GradeModel {
     private Float thirdBimesterGrade;
 
     @Column(name = "nota_quar_bim")
-    private Float fourthBimester;
+    private Float fourthBimesterGrade;
 
     @Column(name = "nota_recup_seg_sem")
     private Float secondSemesterRecoverGrade;
