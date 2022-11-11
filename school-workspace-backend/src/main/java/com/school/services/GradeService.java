@@ -1,5 +1,6 @@
 package com.school.services;
 
+import com.school.dtos.GradeDTO;
 import com.school.models.GradeModel;
 
 import java.util.List;
@@ -11,8 +12,14 @@ public interface GradeService {
 
     List<GradeModel> findAllStudentsGradesBySchoolDegreeAndSubject(Long schoolDegree, Long subjectCode);
 
-    Optional<GradeModel> findById(Long studenteCode);
+    Optional<GradeModel> findById(Long studentCode);
 
     GradeModel save(GradeModel gradeModel);
+
+    Optional<Object> createNewGradeModelIfNotExists(Long studentCode, Long schoolDegreeCode, Long subjectCode);
+
+    Optional<Object> updateGradeModel(Long studentCode, Long schoolDegreeCode, Long subjectCode, GradeDTO gradeDTO);
+
+    Optional<Object> updateStudentGrade(Long studentCode, Long schoolDegreeCode, Long subjectCode, GradeDTO gradeDTO);
 
 }

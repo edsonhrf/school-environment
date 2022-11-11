@@ -46,41 +46,12 @@ public class GradeController {
     }
 
     @PutMapping("/updateStudentGrade/{studentCode}/{schoolDegreeCode}/{subjectCode}")
-    public ResponseEntity<Optional<GradeModel>> updateStudentGrade(@PathVariable Long studentCode,
+    public ResponseEntity<Optional<Object>> updateStudentGrade(@PathVariable Long studentCode,
                                                          @PathVariable Long schoolDegreeCode,
                                                          @PathVariable Long subjectCode,
                                                          @RequestBody @Valid GradeDTO gradeDTO) {
 
-        var gradeModel = gradeService.findGradesByStudent(studentCode, schoolDegreeCode, subjectCode);
-
-        if (gradeModel.isEmpty()) {
-            var newGradeModel = new GradeModel();
-
-            var student = studentService.findStudentById(studentCode);
-            newGradeModel.setStudent(student);
-
-            var schoolDegree = schoolDegreeService.findSchoolDegreeById(schoolDegreeCode);
-            newGradeModel.setSchoolDegree(schoolDegree);
-
-            var subjectDegree = subjectService.findSubjectById(subjectCode);
-            newGradeModel.setSubject(subjectDegree);
-
-            return ResponseEntity.ok().body(Optional.of(gradeService.save(newGradeModel)));
-
-        }
-
-        var gradeMap = gradeModel.map(grade -> {
-
-            grade.setFirstBimesterGrade(Optional.ofNullable(gradeDTO.getFirstBimesterGrade()).orElse(gradeModel.get().getFirstBimesterGrade()));
-            grade.setSecondBimesterGrade(Optional.ofNullable(gradeDTO.getSecondBimesterGrade()).orElse(gradeModel.get().getSecondBimesterGrade()));
-            grade.setFirstSemesterRecoverGrade(Optional.ofNullable(gradeDTO.getFirstSemesterRecoverGrade()).orElse(gradeModel.get().getFirstSemesterRecoverGrade()));
-            grade.setThirdBimesterGrade(Optional.ofNullable(gradeDTO.getThirdBimesterGrade()).orElse(gradeModel.get().getThirdBimesterGrade()));
-            grade.setFourthBimesterGrade(Optional.ofNullable(gradeDTO.getFourthBimesterGrade()).orElse(gradeModel.get().getFourthBimesterGrade()));
-            grade.setSecondSemesterRecoverGrade(Optional.ofNullable(gradeDTO.getSecondSemesterRecoverGrade()).orElse(gradeModel.get().getSecondSemesterRecoverGrade()));
-            return gradeService.save(grade);
-        });
-
-        return ResponseEntity.ok().body(gradeMap);
-
+        var updateStudentGrade =  gradeService.updateStudentGrade(studentCode, schoolDegreeCode, subjectCode, gradeDTO);
+        return ResponseEntity.ok().body(updateStudentGrade);
     }
 }
