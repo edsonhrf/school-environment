@@ -19,22 +19,22 @@ public class GradeModel {
     private Long gradeSequenceNumber;
 
     @Column(name = "nota_prim_bim")
-    private Float firstBimesterGrade;
+    private Float firstBimesterGrade = 0f;
 
     @Column(name = "nota_seg_bim")
-    private Float secondBimesterGrade;
+    private Float secondBimesterGrade = 0f;
 
     @Column(name = "nota_recup_prim_sem")
-    private Float firstSemesterRecoverGrade;
+    private Float firstSemesterRecoverGrade = 0f;
 
     @Column(name = "nota_ter_bim")
-    private Float thirdBimesterGrade;
+    private Float thirdBimesterGrade = 0f;
 
     @Column(name = "nota_quar_bim")
-    private Float fourthBimesterGrade;
+    private Float fourthBimesterGrade = 0f;
 
     @Column(name = "nota_recup_seg_sem")
-    private Float secondSemesterRecoverGrade;
+    private Float secondSemesterRecoverGrade = 0f;
 
     //Várias notas pertencem a um aluno
     @ManyToOne

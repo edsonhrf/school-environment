@@ -22,10 +22,13 @@ public class GradeController {
 
     @Autowired
     GradeServiceImpl gradeService;
+
     @Autowired
     StudentServiceImpl studentService;
+
     @Autowired
     SubjectServiceImpl subjectService;
+
     @Autowired
     SchoolDegreeServiceImpl schoolDegreeService;
 
@@ -43,29 +46,41 @@ public class GradeController {
     }
 
     @PutMapping("/updateStudentGrade/{studentCode}/{schoolDegreeCode}/{subjectCode}")
-    public ResponseEntity<GradeModel> updateStudentGrade(@PathVariable Long studentCode,
+    public ResponseEntity<Optional<GradeModel>> updateStudentGrade(@PathVariable Long studentCode,
                                                          @PathVariable Long schoolDegreeCode,
                                                          @PathVariable Long subjectCode,
                                                          @RequestBody @Valid GradeDTO gradeDTO) {
 
-        Optional<GradeModel> gradeModelOptional = gradeService.findById(studentCode);
+        var gradeModel = gradeService.findGradesByStudent(studentCode, schoolDegreeCode, subjectCode);
 
-        var gradeModel = new GradeModel();
+        if (gradeModel.isEmpty()) {
+            var newGradeModel = new GradeModel();
 
-        gradeModel.setFirstBimesterGrade(gradeDTO.getFirstBimesterGrade());
-        gradeModel.setSecondBimesterGrade(gradeDTO.getSecondBimesterGrade());
-        gradeModel.setFirstSemesterRecoverGrade(gradeDTO.getFirstSemesterRecoverGrade());
-        gradeModel.setThirdBimesterGrade(gradeDTO.getThirdBimesterGrade());
-        gradeModel.setFourthBimesterGrade(gradeDTO.getFourthBimesterGrade());
-        gradeModel.setSecondSemesterRecoverGrade(gradeDTO.getSecondSemesterRecoverGrade());
+            var student = studentService.findStudentById(studentCode);
+            newGradeModel.setStudent(student);
 
-        var studentModel = studentService.findStudentById(studentCode);
-        gradeModel.setStudent(studentModel);
-        var subjectModel = subjectService.findSubjectById(subjectCode);
-        gradeModel.setSubject(subjectModel);
-        var schoolDegreeModel = schoolDegreeService.findSchoolDegreeById(schoolDegreeCode);
-        gradeModel.setSchoolDegree(schoolDegreeModel);
+            var schoolDegree = schoolDegreeService.findSchoolDegreeById(schoolDegreeCode);
+            newGradeModel.setSchoolDegree(schoolDegree);
 
-        return ResponseEntity.status(HttpStatus.OK).body(gradeService.save(gradeModel));
+            var subjectDegree = subjectService.findSubjectById(subjectCode);
+            newGradeModel.setSubject(subjectDegree);
+
+            return ResponseEntity.ok().body(Optional.of(gradeService.save(newGradeModel)));
+
+        }
+
+        var gradeMap = gradeModel.map(grade -> {
+
+            grade.setFirstBimesterGrade(Optional.ofNullable(gradeDTO.getFirstBimesterGrade()).orElse(gradeModel.get().getFirstBimesterGrade()));
+            grade.setSecondBimesterGrade(Optional.ofNullable(gradeDTO.getSecondBimesterGrade()).orElse(gradeModel.get().getSecondBimesterGrade()));
+            grade.setFirstSemesterRecoverGrade(Optional.ofNullable(gradeDTO.getFirstSemesterRecoverGrade()).orElse(gradeModel.get().getFirstSemesterRecoverGrade()));
+            grade.setThirdBimesterGrade(Optional.ofNullable(gradeDTO.getThirdBimesterGrade()).orElse(gradeModel.get().getThirdBimesterGrade()));
+            grade.setFourthBimesterGrade(Optional.ofNullable(gradeDTO.getFourthBimesterGrade()).orElse(gradeModel.get().getFourthBimesterGrade()));
+            grade.setSecondSemesterRecoverGrade(Optional.ofNullable(gradeDTO.getSecondSemesterRecoverGrade()).orElse(gradeModel.get().getSecondSemesterRecoverGrade()));
+            return gradeService.save(grade);
+        });
+
+        return ResponseEntity.ok().body(gradeMap);
+
     }
 }
