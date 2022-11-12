@@ -45,7 +45,7 @@ public class GradeServiceImpl implements GradeService {
     }
 
     @Override
-    public Optional<Object> createNewGradeModelIfNotExists(Long studentCode, Long schoolDegreeCode, Long subjectCode) {
+    public Optional<Object> createStudentGrade(Long studentCode, Long schoolDegreeCode, Long subjectCode) {
         var newGradeModel = new GradeModel();
 
         var student = studentService.findStudentById(studentCode);
@@ -60,12 +60,11 @@ public class GradeServiceImpl implements GradeService {
         return Optional.of(save(newGradeModel));
     }
 
-    @Override
-    public Optional<Object> updateGradeModel(Long studentCode, Long schoolDegreeCode, Long subjectCode, GradeDTO gradeDTO) {
+    public Optional<Object> updateStudentGrade(Long studentCode, Long schoolDegreeCode, Long subjectCode, GradeDTO gradeDTO) {
+
         var gradeModel = findGradesByStudent(studentCode, schoolDegreeCode, subjectCode);
 
         return gradeModel.map(grade -> {
-
             grade.setFirstBimesterGrade(Optional.ofNullable(gradeDTO.getFirstBimesterGrade()).orElse(gradeModel.get().getFirstBimesterGrade()));
             grade.setSecondBimesterGrade(Optional.ofNullable(gradeDTO.getSecondBimesterGrade()).orElse(gradeModel.get().getSecondBimesterGrade()));
             grade.setFirstSemesterRecoverGrade(Optional.ofNullable(gradeDTO.getFirstSemesterRecoverGrade()).orElse(gradeModel.get().getFirstSemesterRecoverGrade()));
@@ -75,17 +74,5 @@ public class GradeServiceImpl implements GradeService {
             return save(grade);
         });
     }
-
-    @Override
-    public Optional<Object> updateStudentGrade(Long studentCode, Long schoolDegreeCode, Long subjectCode, GradeDTO gradeDTO) {
-        var gradeModel = findGradesByStudent(studentCode, schoolDegreeCode, subjectCode);
-
-        if(gradeModel.isEmpty()) {
-            return createNewGradeModelIfNotExists(studentCode, schoolDegreeCode, subjectCode);
-        }
-
-        return updateGradeModel(studentCode, schoolDegreeCode, subjectCode, gradeDTO);
-    }
-
 
 }

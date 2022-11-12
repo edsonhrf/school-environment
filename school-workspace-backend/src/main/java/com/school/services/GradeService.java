@@ -16,9 +16,7 @@ public interface GradeService {
 
     GradeModel save(GradeModel gradeModel);
 
-    Optional<Object> createNewGradeModelIfNotExists(Long studentCode, Long schoolDegreeCode, Long subjectCode);
-
-    Optional<Object> updateGradeModel(Long studentCode, Long schoolDegreeCode, Long subjectCode, GradeDTO gradeDTO);
+    Optional<Object> createStudentGrade(Long studentCode, Long schoolDegreeCode, Long subjectCode);
 
     Optional<Object> updateStudentGrade(Long studentCode, Long schoolDegreeCode, Long subjectCode, GradeDTO gradeDTO);
 

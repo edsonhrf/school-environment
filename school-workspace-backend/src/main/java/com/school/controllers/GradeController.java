@@ -45,11 +45,22 @@ public class GradeController {
         return ResponseEntity.status(HttpStatus.OK).body(gradeService.findAllStudentsGradesBySchoolDegreeAndSubject(schoolDegree, subjectCode));
     }
 
+    @PostMapping("/createStudentGrade/{studentCode}/{schoolDegreeCode}/{subjectCode}")
+    public ResponseEntity<Optional<Object>> createStudentGrade(@PathVariable Long studentCode,
+                                                               @PathVariable Long schoolDegreeCode,
+                                                               @PathVariable Long subjectCode) {
+
+        var newStudentGrade =  gradeService.createStudentGrade(studentCode, schoolDegreeCode, subjectCode);
+        return ResponseEntity.ok().body(newStudentGrade);
+    }
+
     @PutMapping("/updateStudentGrade/{studentCode}/{schoolDegreeCode}/{subjectCode}")
     public ResponseEntity<Optional<Object>> updateStudentGrade(@PathVariable Long studentCode,
-                                                         @PathVariable Long schoolDegreeCode,
-                                                         @PathVariable Long subjectCode,
-                                                         @RequestBody @Valid GradeDTO gradeDTO) {
+                                                               @PathVariable Long schoolDegreeCode,
+                                                               @PathVariable Long subjectCode,
+                                                               @RequestBody @Valid GradeDTO gradeDTO) {
+
+        var gradeModelOptional = findGradesByStudent(studentCode, schoolDegreeCode, subjectCode);
 
         var updateStudentGrade =  gradeService.updateStudentGrade(studentCode, schoolDegreeCode, subjectCode, gradeDTO);
         return ResponseEntity.ok().body(updateStudentGrade);
