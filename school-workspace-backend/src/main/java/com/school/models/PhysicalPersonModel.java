@@ -70,7 +70,7 @@ public class PhysicalPersonModel {
     @Column(name = "nr_telefone", length = 11, nullable = false)
     private Integer telephoneNumber;
 
-    @Column(name = "ds_email", length = 45, nullable = false)
+    @Column(name = "ds_email", length = 100, nullable = false)
     private String email;
 
     @Column(name = "ds_senha", length = 16)

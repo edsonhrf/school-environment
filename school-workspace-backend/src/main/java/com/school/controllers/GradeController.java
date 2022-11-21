@@ -45,6 +45,7 @@ public class GradeController {
         return ResponseEntity.status(HttpStatus.OK).body(gradeService.findAllStudentsGradesBySchoolDegreeAndSubject(schoolDegree, subjectCode));
     }
 
+    // This method will be used in the web portal to create the report card after the enrollment
     @PostMapping("/createStudentGrade/{studentCode}/{schoolDegreeCode}/{subjectCode}")
     public ResponseEntity<Optional<Object>> createStudentGrade(@PathVariable Long studentCode,
                                                                @PathVariable Long schoolDegreeCode,
@@ -63,6 +64,7 @@ public class GradeController {
         var gradeModelOptional = findGradesByStudent(studentCode, schoolDegreeCode, subjectCode);
 
         var updateStudentGrade =  gradeService.updateStudentGrade(studentCode, schoolDegreeCode, subjectCode, gradeDTO);
+
         return ResponseEntity.ok().body(updateStudentGrade);
     }
 }
