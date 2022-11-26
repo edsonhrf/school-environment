@@ -1,1 +1,0 @@
-// serviços de comunicação com a aplicação ficam na pasta services

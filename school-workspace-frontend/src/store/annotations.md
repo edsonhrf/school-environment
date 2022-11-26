@@ -1,2 +1,0 @@
--> configurações de redux
--> ficam os dados da aplicação
