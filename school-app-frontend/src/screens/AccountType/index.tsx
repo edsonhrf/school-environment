@@ -9,6 +9,7 @@ export function AccountType() {
     const [text, setText] = React.useState("");
     const [teacher, setTeacher] = React.useState(false);
     const [student, setStudent] = React.useState(false);
+    const [buttonEnable, setButtonEnable] = React.useState(true);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -90,17 +91,17 @@ export function AccountType() {
                     label='Enrollment number'
                     selectionColor='#3A96AD'
                     activeOutlineColor='#3A96AD'
-                    // backgroundColor='white'
-                    // value={text}
                     onChangeText={text => setText(text)}
-                    left={<TextInput.Icon icon="account" />}
+                    left={student||teacher ? <TextInput.Icon icon="account"/> : <TextInput.Icon icon="account" iconColor='#D0D0D0'/>}
+                    disabled={student||teacher ? false : true}
                 />
             </SafeAreaView>
 
-            <SafeAreaView style={styles.containerContinueButton}>
+            <SafeAreaView style={styles.containerContinueButton}> 
                 <TouchableOpacity
-                    style={styles.continueButton}
-                    onPress={() => console.log('Clique no botão para continuar')}>
+                    style={student||teacher ? styles.continueButtonEnable : styles.continueButtonDisable}
+                    onPress={() => buttonEnable && console.log('Clique no botão para continuar')}
+                >
                         <Text style={styles.buttonText}>
                             Continue   
                         </Text>

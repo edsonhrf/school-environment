@@ -51,7 +51,7 @@ export const styles = StyleSheet.create({
         alignContent: 'center',
         alignItems: 'center',
         elevation: 10,
-        activeOpacity: 1000
+        activeOpacity: 1000,
     },
     imageTeacherButton: {
         width: '60%',
@@ -128,7 +128,7 @@ export const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         marginRight: 10,
-        marginLeft: 10
+        marginLeft: 10        
     },
     containerContinueButton: {
         flex: 2,
@@ -137,22 +137,34 @@ export const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center'
     },
-    continueButton: {
+    continueButtonEnable: {
         alignItems:'center',
         backgroundColor: '#3A96AD',
         height: 70,
         marginTop:20,
         marginBottom:10,
         padding: 15,
-        // borderRadius: 8,
         justifyContent: 'center',
         display: 'flex',
         marginRight: 0,
         marginLeft: 0,
-        flexDirection: 'row-reverse'
+        flexDirection: 'row-reverse',
+    },
+    continueButtonDisable: {
+        alignItems:'center',
+        backgroundColor: '#D0D0D0',
+        height: 70,
+        marginTop:20,
+        marginBottom:10,
+        padding: 15,
+        justifyContent: 'center',
+        display: 'flex',
+        marginRight: 0,
+        marginLeft: 0,
+        flexDirection: 'row-reverse',
     },
     buttonText: {
         fontSize: 20,
-        color: 'white'
+        color: 'white',
     }
   });
