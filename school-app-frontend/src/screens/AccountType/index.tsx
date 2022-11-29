@@ -99,6 +99,7 @@ export function AccountType() {
 
             <SafeAreaView style={styles.containerContinueButton}> 
                 <TouchableOpacity
+                    disabled={student||teacher ? false : buttonEnable}
                     style={student||teacher ? styles.continueButtonEnable : styles.continueButtonDisable}
                     onPress={() => buttonEnable && console.log('Clique no botão para continuar')}
                 >
