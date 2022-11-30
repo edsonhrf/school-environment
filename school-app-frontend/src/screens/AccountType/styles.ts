@@ -4,19 +4,19 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     container: {
         flex: 10,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     containerLogo: {
-        flex: 2.0,
-        backgroundColor: 'white',
+        flex: 3.0,
+        // backgroundColor: 'yellow',  //BACKGROUND-COLOR TEST
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 10
     },
     containerSubtitle: {
-        flex: 0.5,
-        // backgroundColor: 'pink',
+        flex: 0.6,
+        // backgroundColor: 'pink', //BACKGROUND-COLOR TEST
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
     },
     containerAccountTypeButtons: {
         flex: 2.5,
-        // backgroundColor: 'purple',
+        // backgroundColor: 'purple', //BACKGROUND-COLOR TEST
         padding: 10,
         display: 'flex',
         justifyContent: 'center',
@@ -33,18 +33,17 @@ export const styles = StyleSheet.create({
     },
     teacherButton: {
         width: '45%',
-        height: '70%',
+        height: '80%',
         margin: 5,
         backgroundColor: '#fff',
         borderRadius: 20,
         alignContent: 'center',
         alignItems: 'center',
-        elevation: 10,
-        // activeOpacity: 1000
+        elevation: 10
     },
     teacherButtonSelected: {
         width: '45%',
-        height: '70%',
+        height: '80%',
         margin: 5,
         backgroundColor: '#B0DCE7',
         borderRadius: 20,
@@ -56,8 +55,8 @@ export const styles = StyleSheet.create({
     imageTeacherButton: {
         width: '60%',
         height: '70%',
-        marginTop: 10,
-        marginBottom: 5
+        marginTop: 5,
+        // marginBottom: 5
     },
     textTeacherButton: {
         fontSize: 15,
@@ -79,7 +78,7 @@ export const styles = StyleSheet.create({
     },
     studentButton: {
         width: '45%',
-        height: '70%',
+        height: '80%',
         margin: 5,
         backgroundColor: '#fff',
         borderRadius: 20,
@@ -89,7 +88,7 @@ export const styles = StyleSheet.create({
     },
     studentButtonSelected: {
         width: '45%',
-        height: '70%',
+        height: '80%',
         margin: 5,
         backgroundColor: '#B0DCE7',
         borderRadius: 20,
@@ -100,12 +99,12 @@ export const styles = StyleSheet.create({
     imageStudentButton: {
         width: '70%',
         height: '70%',
-        marginTop: 10,
-        marginBottom: 5
+        marginTop: 5,
+        // marginBottom: 0
     },
     textStudentButton: {
         fontSize: 15,
-        color: '#D0D0D0',
+        color: '#D0D0D0'
     },
     textStudentButtonSelected: {
         fontSize: 16,
@@ -123,17 +122,14 @@ export const styles = StyleSheet.create({
     },
     containerForm: {
         flex: 1.0,
-        // backgroundColor: 'orange',
-        padding: 15,
+        // backgroundColor: 'orange', //BACKGROUND-COLOR TEST
+        padding: 20,
         display: 'flex',
-        justifyContent: 'center',
-        marginRight: 10,
-        marginLeft: 10        
+        justifyContent: 'center',      
     },
     containerContinueButton: {
-        flex: 2,
-        // backgroundColor: 'gray',
-        // padding: 15,
+        flex: 1.5,
+        // backgroundColor: 'gray', //BACKGROUND-COLOR TEST
         display: 'flex',
         justifyContent: 'center'
     },
