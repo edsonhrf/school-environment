@@ -7,12 +7,13 @@ export const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     containerLogo: {
-        flex: 3.0,
+        flex: 2.6,
         // backgroundColor: 'yellow',  //BACKGROUND-COLOR TEST
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 10
+        padding: 10,
+        marginTop: -15
     },
     containerSubtitle: {
         flex: 0.6,
@@ -23,7 +24,7 @@ export const styles = StyleSheet.create({
         padding: 10
     },
     containerAccountTypeButtons: {
-        flex: 2.5,
+        flex: 2.0,
         // backgroundColor: 'purple', //BACKGROUND-COLOR TEST
         padding: 10,
         display: 'flex',
@@ -33,7 +34,7 @@ export const styles = StyleSheet.create({
     },
     teacherButton: {
         width: '45%',
-        height: '80%',
+        height: '90%',
         margin: 5,
         backgroundColor: '#fff',
         borderRadius: 20,
@@ -43,7 +44,7 @@ export const styles = StyleSheet.create({
     },
     teacherButtonSelected: {
         width: '45%',
-        height: '80%',
+        height: '90%',
         margin: 5,
         backgroundColor: '#B0DCE7',
         borderRadius: 20,
@@ -78,7 +79,7 @@ export const styles = StyleSheet.create({
     },
     studentButton: {
         width: '45%',
-        height: '80%',
+        height: '90%',
         margin: 5,
         backgroundColor: '#fff',
         borderRadius: 20,
@@ -88,7 +89,7 @@ export const styles = StyleSheet.create({
     },
     studentButtonSelected: {
         width: '45%',
-        height: '80%',
+        height: '90%',
         margin: 5,
         backgroundColor: '#B0DCE7',
         borderRadius: 20,
@@ -121,11 +122,17 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     containerForm: {
-        flex: 1.0,
+        flex: 2.0,
         // backgroundColor: 'orange', //BACKGROUND-COLOR TEST
         padding: 20,
         display: 'flex',
         justifyContent: 'center',      
+    },
+    enrollmentInput: {
+        marginBottom: 20
+    },
+    passwordInput: {
+        
     },
     containerContinueButton: {
         flex: 1.5,
