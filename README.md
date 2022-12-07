@@ -14,7 +14,10 @@ As for the "Teacher" type access, editing and recording of new information is al
 Both users can update profile information, view notifications and go to menu.
 
 ## Commom screens for both access type
-![Web 2](https://github.com/acenelio/assets/raw/main/sds1/web2.png)
+![Login](https://github.com/edsonhrf/school-environment/blob/main/school-app-frontend/assets/school-environment-screens/common-screens/login_screen.png)
+![Menu](https://github.com/edsonhrf/school-environment/blob/main/school-app-frontend/assets/school-environment-screens/common-screens/menu_screen.png)
+![Notifications](https://github.com/edsonhrf/school-environment/blob/main/school-app-frontend/assets/school-environment-screens/common-screens/notifications_screen.png)
+![Profile](https://github.com/edsonhrf/school-environment/blob/main/school-app-frontend/assets/school-environment-screens/common-screens/profile_screen.png)
 
 ## Screens for access type "Student"
 ![Mobile 1](https://github.com/acenelio/assets/raw/main/sds1/mobile1.png) ![Mobile 2](https://github.com/acenelio/assets/raw/main/sds1/mobile2.png)
