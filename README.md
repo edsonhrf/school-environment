@@ -20,10 +20,16 @@ Both users can update profile information, view notifications and go to menu.
 ![Profile](https://github.com/edsonhrf/school-environment/blob/main/school-app-frontend/assets/school-environment-screens/common-screens/profile_screen.png)
 
 ## Screens for access type "Student"
-![Mobile 1](https://github.com/acenelio/assets/raw/main/sds1/mobile1.png) ![Mobile 2](https://github.com/acenelio/assets/raw/main/sds1/mobile2.png)
+![Attendance](https://github.com/edsonhrf/school-environment/blob/main/school-app-frontend/assets/school-environment-screens/student-screens/student_attendance_screen.png)
+![Grades](https://github.com/edsonhrf/school-environment/blob/main/school-app-frontend/assets/school-environment-screens/student-screens/student_subject_grades_screen.png)
+![Financial](https://github.com/edsonhrf/school-environment/blob/main/school-app-frontend/assets/school-environment-screens/student-screens/student_financial_screen.png)
+![ID Card](https://github.com/edsonhrf/school-environment/blob/main/school-app-frontend/assets/school-environment-screens/student-screens/student_id_card_screen.png)
 
 ## Screens for access type "Teacher"
-![Web 1](https://github.com/acenelio/assets/raw/main/sds1/web1.png)
+![Attendance](https://github.com/edsonhrf/school-environment/blob/main/school-app-frontend/assets/school-environment-screens/teacher-screens/teacher_list_attendance_screen.png)
+![New Attendance](https://github.com/edsonhrf/school-environment/blob/main/school-app-frontend/assets/school-environment-screens/teacher-screens/teacher_new_attendance_screen.png)
+![Grades](https://github.com/edsonhrf/school-environment/blob/main/school-app-frontend/assets/school-environment-screens/teacher-screens/teacher_grades_screen.png)
+![Class Content](https://github.com/edsonhrf/school-environment/blob/main/school-app-frontend/assets/school-environment-screens/teacher-screens/teacher_class_content_screen.png)
 
 # Technologies used
 ## Back end
