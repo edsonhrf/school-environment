@@ -40,6 +40,7 @@ Both users can update profile information, view notifications and go to menu.
 - JPA / Hibernate
 - Maven
 - Java Validation
+- Java Doc
 - Swagger
 - Spring Security
 - Spring MVC
