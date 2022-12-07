@@ -63,7 +63,7 @@ Both users can update profile information, view notifications and go to menu.
 # How to run the project
 
 ## Back end
-- Java SDK 1.8
+- Java 11
 
 ```bash
 # clone repository
@@ -91,10 +91,10 @@ git clone https://github.com/edsonhrf/school-environment.git
 cd school-app-frontend
 
 # install dependencies
-yarn install
+npm install
 
 # run the project
-yarn start
+expo start
 ```
 
 # Author
