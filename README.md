@@ -1,3 +1,5 @@
+## <p align="center"> :warning: :construction: Work in progress :construction: :warning: </p>
+
 # School Environment
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/edsonhrf/school-environment/blob/main/LICENSE) 
 
