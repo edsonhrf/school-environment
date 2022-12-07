@@ -9,9 +9,9 @@ The application consists of two different access types: teacher and student.
 
 For "Student" type access, the grades, attendances, news and class content screens are for reference only.
 
-As for the "Professor" type access, editing and recording of new information is allowed on all application screens according to the discipline that is released for the logged-in profile.
+As for the "Teacher" type access, editing and recording of new information is allowed on all application screens according to the subject that is released for the logged-in profile.
 
-Both users can update profile information, view notifications and menu.
+Both users can update profile information, view notifications and go to menu.
 
 ## Commom screens for both access type
 ![Web 2](https://github.com/acenelio/assets/raw/main/sds1/web2.png)
@@ -52,7 +52,7 @@ Both users can update profile information, view notifications and menu.
 # How to run the project
 
 ## Back end
-Java SDK 1.8
+- Java SDK 1.8
 
 ```bash
 # clone repository
@@ -65,12 +65,12 @@ cd school-app-backend
 ./mvnw spring-boot:run
 ```
 
-## Front end mobile (using Expo Managed Workflow (Expo GO))
-Node.js (LTS);
-npm (already installed with Node);
-git
-expo-cli
-Expo GO (app to be installed on Android and/or iOS device)
+## Front end mobile - using Expo Managed Workflow (Expo GO)
+- Node.js (LTS)
+- npm (already installed with Node)
+- git
+- expo-cli
+- Expo GO (app to be installed on Android and/or iOS device)
 
 ```bash
 # clone repository
