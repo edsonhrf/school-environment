@@ -36,14 +36,15 @@ Both users can update profile information, view notifications and go to menu.
 # Technologies used
 ## Back end
 - Java
-- Spring Boot
-- JPA / Hibernate
-- Maven
 - Java Validation
-- Java Doc
-- Swagger
+- Spring Boot
 - Spring Security
 - Spring MVC
+- Spring Data JPA
+- Hibernate
+- Maven
+- Java Doc
+- Swagger
 ## Front end
 - HTML / CSS / JS / TypeScript
 - React Native
