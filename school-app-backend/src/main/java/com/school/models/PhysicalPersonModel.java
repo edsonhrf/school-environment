@@ -1,9 +1,13 @@
 package com.school.models;
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "pessoa_fisica", schema = "heroku_fdafa744b3499e8")
@@ -12,7 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class PhysicalPersonModel {
+public class PhysicalPersonModel implements UserDetails {
 
     @Id
     @Column(name = "cd_pessoa_fisica", length = 11)
@@ -73,7 +77,52 @@ public class PhysicalPersonModel {
     @Column(name = "ds_email", length = 100, nullable = false)
     private String email;
 
-    @Column(name = "ds_senha", length = 16)
+    @Column(name = "ds_senha")
     private String password;
 
+    @Column(name = "ds_matricula", length = 11, nullable = false)
+    private String username;
+
+    // Users X Roles relationship - Spring Security
+    @ManyToMany
+    @JoinTable(name = "pessoa_usuario_regra",
+            joinColumns = @JoinColumn(name = "cd_pessoa_fisica"),
+            inverseJoinColumns = @JoinColumn(name = "nr_seq_regra"))
+    private List<RoleModel> roles;
+
+    // Bellow methods from UserDetails interface - Spring Security
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.roles;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.password;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

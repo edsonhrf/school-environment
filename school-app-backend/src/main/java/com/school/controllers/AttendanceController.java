@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -24,14 +25,16 @@ public class AttendanceController {
 
     @Autowired
     AttendanceServiceImpl attendanceService;
+
+    @PreAuthorize("hasRole('ROLE_TEACHER')")
     @PostMapping("/saveAttendance")
-    @ApiOperation(value="Return a student attendance")
+    @ApiOperation(value="Save a student attendance")
     public ResponseEntity<Object> saveAttendance(@RequestBody @Valid List<AttendanceDTO> attendanceDTO) {
-        try{
+//        try{
             return ResponseEntity.status(HttpStatus.CREATED).body(attendanceService.save(attendanceDTO));
-        }catch (Exception e){
-            return ResponseEntity.badRequest().build();
-        }
+//        }catch (Exception e){
+//            return ResponseEntity.badRequest().build();
+//        }
     }
     @GetMapping
     @ApiOperation(value="Return all students attendances")

@@ -20,9 +20,6 @@ public class EmployeeModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long employeeCode;
 
-    @Column(name = "nr_matricula", length = 11, nullable = false)
-    private Integer enrollmentNumber;
-
     @Column(name = "dt_matricula", nullable = false)
     private LocalDate enrollmentDate;
 

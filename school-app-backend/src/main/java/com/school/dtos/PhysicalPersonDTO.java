@@ -27,4 +27,7 @@ public class PhysicalPersonDTO {
     @NotNull
     private LocalDate birthDate;
 
+    @NotNull
+    private String enrollment;
+
 }

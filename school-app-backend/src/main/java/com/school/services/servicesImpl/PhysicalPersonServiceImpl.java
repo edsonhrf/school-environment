@@ -29,14 +29,6 @@ public class PhysicalPersonServiceImpl implements PhysicalPersonService {
 
         var physicalPersonModel = findById(physicalPersonCode);
 
-//        physicalPersonDTO.setPhysicalPersonName(physicalPersonDTO.getPhysicalPersonName());
-//        physicalPersonDTO.setEmail(physicalPersonDTO.getEmail());
-//        physicalPersonDTO.setTelephoneNumber(physicalPersonDTO.getTelephoneNumber());
-//        physicalPersonDTO.setGender(physicalPersonDTO.getGender());
-//        physicalPersonDTO.setBirthDate(physicalPersonDTO.getBirthDate());
-//
-//        return save(physicalPersonModel);
-
         return physicalPersonModel.map(physicalPerson -> {
             physicalPerson.setPhysicalPersonName(Optional.ofNullable(physicalPersonDTO.getPhysicalPersonName()).orElse(physicalPersonModel.get().getPhysicalPersonName()));
             physicalPerson.setEmail(Optional.ofNullable(physicalPersonDTO.getEmail()).orElse(physicalPersonModel.get().getEmail()));
@@ -46,6 +38,8 @@ public class PhysicalPersonServiceImpl implements PhysicalPersonService {
             physicalPerson.setBirthDate(Optional.ofNullable(physicalPersonDTO.getBirthDate()).orElse(physicalPersonModel.get().getBirthDate()));
             return save(physicalPerson);
         });
+
+
 
     }
 

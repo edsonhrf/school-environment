@@ -23,9 +23,6 @@ public class StudentModel {
     @Column(name = "dt_matricula", length = 45, nullable = false)
     private LocalDate enrollmentDate;
 
-    @Column(name = "nr_matricula", length = 11)
-    private String enrollmentNumber;
-
 //    Um aluno possui um código de pessoa física
 //    @OneToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "cd_pessoa_fisica")
