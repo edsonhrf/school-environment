@@ -25,10 +25,10 @@ public class RoleModel implements GrantedAuthority {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "ds_regra", nullable = false, unique = true)
-    private RoleName roleName;
+    private RoleName roleDescription;
 
     @Override
     public String getAuthority() {
-        return this.roleName.toString();
+        return this.roleDescription.toString();
     }
 }

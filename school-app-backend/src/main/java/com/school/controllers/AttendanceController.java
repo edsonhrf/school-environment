@@ -36,11 +36,13 @@ public class AttendanceController {
 //            return ResponseEntity.badRequest().build();
 //        }
     }
+    @PreAuthorize("hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')")
     @GetMapping
     @ApiOperation(value="Return all students attendances")
     public ResponseEntity<List<AttendanceModel>> getAllAttendances() {
         return ResponseEntity.status(HttpStatus.OK).body(attendanceService.findAllAttendances());
     }
+    @PreAuthorize("hasRole('ROLE_STUDENT')")
     @GetMapping("/findAttendanceBySequenceNumber")
     @ApiOperation(value="Return an attendance by sequence number")
     public ResponseEntity<Object> getAttendanceBySequence(@RequestParam(value = "sequenceNumber") Long subjectSequenceNumber) {
@@ -51,6 +53,7 @@ public class AttendanceController {
         return ResponseEntity.status(HttpStatus.OK).body(attendanceModelOptional.get());
     }
 
+    @PreAuthorize("hasRole('ROLE_STUDENT')")
     @GetMapping("/findAttendanceBetweenDate")
     @ApiOperation(value="Return student attendances between dates")
     public ResponseEntity<List<AttendanceModel>> findAttendancesBetweenDate(@RequestParam("dateTimeStart") @DateTimeFormat (pattern = "yyyy-MM-dd") LocalDate dateTimeStart,
