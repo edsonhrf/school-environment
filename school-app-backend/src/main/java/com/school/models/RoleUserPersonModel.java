@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RoleUserPerson {
+public class RoleUserPersonModel {
 
     @Id
     @Column(name = "nr_sequencia", length = 11)

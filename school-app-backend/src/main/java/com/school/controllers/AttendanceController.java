@@ -19,7 +19,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-@Api(value="API REST Attendance")
+@Api(value = "API REST Attendance")
 @RequestMapping("/attendance")
 public class AttendanceController {
 
@@ -28,23 +28,21 @@ public class AttendanceController {
 
     @PreAuthorize("hasRole('ROLE_TEACHER')")
     @PostMapping("/saveAttendance")
-    @ApiOperation(value="Save a student attendance")
+    @ApiOperation(value = "Save a student attendance")
     public ResponseEntity<Object> saveAttendance(@RequestBody @Valid List<AttendanceDTO> attendanceDTO) {
-//        try{
-            return ResponseEntity.status(HttpStatus.CREATED).body(attendanceService.save(attendanceDTO));
-//        }catch (Exception e){
-//            return ResponseEntity.badRequest().build();
-//        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(attendanceService.save(attendanceDTO));
     }
+
     @PreAuthorize("hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')")
     @GetMapping
-    @ApiOperation(value="Return all students attendances")
+    @ApiOperation(value = "Return all students attendances")
     public ResponseEntity<List<AttendanceModel>> getAllAttendances() {
         return ResponseEntity.status(HttpStatus.OK).body(attendanceService.findAllAttendances());
     }
+
     @PreAuthorize("hasRole('ROLE_STUDENT')")
     @GetMapping("/findAttendanceBySequenceNumber")
-    @ApiOperation(value="Return an attendance by sequence number")
+    @ApiOperation(value = "Return an attendance by sequence number")
     public ResponseEntity<Object> getAttendanceBySequence(@RequestParam(value = "sequenceNumber") Long subjectSequenceNumber) {
         Optional<AttendanceModel> attendanceModelOptional = attendanceService.findById(subjectSequenceNumber);
         if (!attendanceModelOptional.isPresent()) {
@@ -55,8 +53,8 @@ public class AttendanceController {
 
     @PreAuthorize("hasRole('ROLE_STUDENT')")
     @GetMapping("/findAttendanceBetweenDate")
-    @ApiOperation(value="Return student attendances between dates")
-    public ResponseEntity<List<AttendanceModel>> findAttendancesBetweenDate(@RequestParam("dateTimeStart") @DateTimeFormat (pattern = "yyyy-MM-dd") LocalDate dateTimeStart,
+    @ApiOperation(value = "Return student attendances between dates")
+    public ResponseEntity<List<AttendanceModel>> findAttendancesBetweenDate(@RequestParam("dateTimeStart") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dateTimeStart,
                                                                             @RequestParam("dateTimeEnd") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dateTimeEnd,
                                                                             @RequestParam("studentCode") Long studentCode) {
         return ResponseEntity.status(HttpStatus.OK).body(attendanceService.findAttendancesBetweenDate(dateTimeStart, dateTimeEnd, studentCode));

@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -23,6 +24,7 @@ public class GradeController {
     @Autowired
     GradeServiceImpl gradeService;
 
+    @PreAuthorize("hasRole('ROLE_STUDENT')")
     @GetMapping("/findGradesByStudent")
     @ApiOperation(value="Return grades by student")
     public ResponseEntity<Object> findGradesByStudent(@RequestParam("studentCode") Long studentCode,
@@ -31,6 +33,7 @@ public class GradeController {
         return ResponseEntity.status(HttpStatus.OK).body(gradeService.findGradesByStudent(studentCode, schoolDegree, subjectCode));
     }
 
+    @PreAuthorize("hasRole('ROLE_TEACHER')")
     @GetMapping("/findAllStudentsGradesBySchoolDegreeAndSubject")
     @ApiOperation(value="Return all students grades")
     public ResponseEntity<List<GradeModel>> findAllStudentsGradesBySchoolDegreeAndSubject(@RequestParam("schoolDegreeCode") Long schoolDegree,
@@ -39,6 +42,7 @@ public class GradeController {
     }
 
     // This method will be used in the web portal to create the report card after the enrollment
+    @PreAuthorize("hasRole('ROLE_TEACHER')")
     @PostMapping("/createStudentGrade/{studentCode}/{schoolDegreeCode}/{subjectCode}")
     @ApiOperation(value="Create a new student grade")
     public ResponseEntity<Optional<Object>> createStudentGrade(@PathVariable Long studentCode,
@@ -49,6 +53,7 @@ public class GradeController {
         return ResponseEntity.ok().body(newStudentGrade);
     }
 
+    @PreAuthorize("hasRole('ROLE_TEACHER')")
     @PutMapping("/updateStudentGrade/{studentCode}/{schoolDegreeCode}/{subjectCode}")
     @ApiOperation(value="Update a student grade")
     public ResponseEntity<Optional<Object>> updateStudentGrade(@PathVariable Long studentCode,

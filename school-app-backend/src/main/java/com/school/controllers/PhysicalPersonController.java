@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -22,12 +23,14 @@ public class PhysicalPersonController {
     @Autowired
     PhysicalPersonServiceImpl physicalPersonService;
 
+    @PreAuthorize("hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')")
     @GetMapping("/findPhysicalPerson/{physicalPersonCode}")
     @ApiOperation(value="Return a physical person by id")
     public ResponseEntity<Optional<PhysicalPersonModel>> findPhysicalPersonById(@PathVariable(value = "physicalPersonCode") Long physicalPersonCode) {
         return ResponseEntity.status(HttpStatus.OK).body(physicalPersonService.findById(physicalPersonCode));
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')")
     @PutMapping("/updatePhysicalPerson/{physicalPersonCode}")
     @ApiOperation(value="Update a physical person by id")
     public ResponseEntity<Optional<Object>> updatePhysicalPerson(@PathVariable(value = "physicalPersonCode") Long physicalPersonCode,
